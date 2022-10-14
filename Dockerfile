@@ -4,15 +4,17 @@ FROM node:alpine
 # set the working direction
 WORKDIR /app
 
+# add app
 
 
 # install app dependencies
-COPY package.json ./
+COPY package*.json ./
 
 RUN npm install
 
-# add app
-COPY . ./
+COPY . .
+
+EXPOSE 8080
 
 # start app
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
